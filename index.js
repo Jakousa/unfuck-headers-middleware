@@ -1,4 +1,8 @@
 const shibbolethCharsetMiddleware = shibbolethHeaders => (req, res, next) => {
+  if(!shibbolethHeaders) {
+    return next()
+  }
+ 
   const newHeaders = shibbolethHeaders
     .filter(header => req.headers[header])
     .reduce((acc, header) => ({
