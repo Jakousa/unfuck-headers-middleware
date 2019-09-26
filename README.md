@@ -1,3 +1,7 @@
+# unfuck-utf8-headers-middleware
+
+[![npm version](https://badge.fury.io/js/unfuck-utf8-headers-middleware.svg)](https://badge.fury.io/js/unfuck-utf8-headers-middleware)
+
 Headers are converted from the standard iso-8859-1 / latin1 to UTF-8 by node.
 
 Headers from shibboleth are already UTF-8.
