@@ -3,15 +3,17 @@ const shibbolethCharsetMiddleware = targetHeaders => {
     throw new Error('argument must be an array')
   }
 
-  // lowercase headers because express lowercases req.headers headers
-  const shibbolethHeaders = targetHeaders.map(str => str.toLowerCase())
   return (req, res, next) => {
-    shibbolethHeaders.forEach(header => {
-      if (!req.headers[header]) return
-      req.headers[header] = Buffer.from(req.headers[header], 'latin1').toString(
-        'utf8'
-      )
-    })
+    const newHeaders = targetHeaders
+      .map(str => str.toLowerCase())
+      .filter(header => req.headers[header])
+      .reduce((acc, header) => ({
+        ...acc,
+        [header]: Buffer.from(req.headers[header], 'latin1').toString('utf8'),
+      }), req.headers);
+
+    req.headers = newHeaders
+
     next()
   }
 }
