@@ -11,7 +11,7 @@ https://issues.shibboleth.net/jira/projects/SSPCPP/issues/SSPCPP-2?filter=allope
 This express middleware reverts the conversion. Use it once before handling headers.
 
 ```js
-const headersMiddleware = require('unfuck-headers-middleware')
+const headersMiddleware = require('unfuck-utf8-headers-middleware')
 const headers = [
   'uid',
   'givenname',
