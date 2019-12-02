@@ -7,12 +7,7 @@ const shibbolethCharsetMiddleware = targetHeaders => {
                             const shibbolethHeaders = targetHeaders.map(str => str.toLowerCase())
                             return (req, res, next) => {
                                                         shibbolethHeaders.forEach(header => {
-                                                                                    if (
-                                                                                                                !req
-                                                                                                                                            .headers[
-                                                                                                                                            header
-                                                                                                                ]
-                                                                                    )
+                                                                                    if (!req.headers[header])
                                                                                                                 return
                                                                                     req.headers[
                                                                                                                 header
@@ -22,9 +17,7 @@ const shibbolethCharsetMiddleware = targetHeaders => {
                                                                                                                                             header
                                                                                                                 ],
                                                                                                                 'latin1'
-                                                                                    ).toString(
-                                                                                                                'utf8'
-                                                                                    )
+                                                                                    ).toString('utf8')
                                                         })
                                                         next()
                             }
