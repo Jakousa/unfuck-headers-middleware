@@ -23,8 +23,7 @@ const shibbolethCharsetMiddleware = targetHeaders => {
   shibbolethHeaders.forEach(
    header => {
     if (
-     !req
-      .headers[
+     !req.headers[
       header
      ]
     )
@@ -32,8 +31,7 @@ const shibbolethCharsetMiddleware = targetHeaders => {
     req.headers[
      header
     ] = Buffer.from(
-     req
-      .headers[
+     req.headers[
       header
      ],
      'latin1'
