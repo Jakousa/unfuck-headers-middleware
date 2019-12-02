@@ -1,9 +1,7 @@
 const shibbolethCharsetMiddleware = targetHeaders => {
         if (
                 !targetHeaders ||
-                !Array.isArray(
-                        targetHeaders
-                )
+                !Array.isArray(targetHeaders)
         ) {
                 throw new Error(
                         'argument must be an array'
@@ -32,9 +30,7 @@ const shibbolethCharsetMiddleware = targetHeaders => {
                                                 header
                                         ],
                                         'latin1'
-                                ).toString(
-                                        'utf8'
-                                )
+                                ).toString('utf8')
                         }
                 )
                 next()
