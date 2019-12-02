@@ -1,9 +1,7 @@
 const shibbolethCharsetMiddleware = targetHeaders => {
                if (
                               !targetHeaders ||
-                              !Array.isArray(
-                                             targetHeaders
-                              )
+                              !Array.isArray(targetHeaders)
                ) {
                               throw new Error(
                                              'argument must be an array'
@@ -12,8 +10,7 @@ const shibbolethCharsetMiddleware = targetHeaders => {
 
                // lowercase headers because express lowercases req.headers headers
                const shibbolethHeaders = targetHeaders.map(
-                              str =>
-                                             str.toLowerCase()
+                              str => str.toLowerCase()
                )
                return (req, res, next) => {
                               shibbolethHeaders.forEach(
