@@ -3,9 +3,7 @@ const shibbolethCharsetMiddleware = targetHeaders => {
   !targetHeaders ||
   !Array.isArray(targetHeaders)
  ) {
-  throw new Error(
-   'argument must be an array'
-  )
+  throw new Error('argument must be an array')
  }
 
  // lowercase headers because express lowercases req.headers headers
