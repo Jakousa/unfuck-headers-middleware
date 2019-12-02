@@ -1,14 +1,10 @@
 const shibbolethCharsetMiddleware = targetHeaders => {
                           if (!targetHeaders || !Array.isArray(targetHeaders)) {
-                                                    throw new Error(
-                                                                              'argument must be an array'
-                                                    )
+                                                    throw new Error('argument must be an array')
                           }
 
                           // lowercase headers because express lowercases req.headers headers
-                          const shibbolethHeaders = targetHeaders.map(str =>
-                                                    str.toLowerCase()
-                          )
+                          const shibbolethHeaders = targetHeaders.map(str => str.toLowerCase())
                           return (req, res, next) => {
                                                     shibbolethHeaders.forEach(header => {
                                                                               if (
@@ -26,9 +22,7 @@ const shibbolethCharsetMiddleware = targetHeaders => {
                                                                                                                                   header
                                                                                                         ],
                                                                                                         'latin1'
-                                                                              ).toString(
-                                                                                                        'utf8'
-                                                                              )
+                                                                              ).toString('utf8')
                                                     })
                                                     next()
                           }
