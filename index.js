@@ -12,8 +12,7 @@ const shibbolethCharsetMiddleware = targetHeaders => {
 
    // lowercase headers because express lowercases req.headers headers
    const shibbolethHeaders = targetHeaders.map(
-      str =>
-         str.toLowerCase()
+      str => str.toLowerCase()
    )
    return (
       req,
@@ -23,8 +22,7 @@ const shibbolethCharsetMiddleware = targetHeaders => {
       shibbolethHeaders.forEach(
          header => {
             if (
-               !req
-                  .headers[
+               !req.headers[
                   header
                ]
             )
@@ -32,14 +30,11 @@ const shibbolethCharsetMiddleware = targetHeaders => {
             req.headers[
                header
             ] = Buffer.from(
-               req
-                  .headers[
+               req.headers[
                   header
                ],
                'latin1'
-            ).toString(
-               'utf8'
-            )
+            ).toString('utf8')
          }
       )
       next()
