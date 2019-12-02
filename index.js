@@ -15,11 +15,7 @@ const shibbolethCharsetMiddleware = targetHeaders => {
                                           str =>
                                                                str.toLowerCase()
                      )
-                     return (
-                                          req,
-                                          res,
-                                          next
-                     ) => {
+                     return (req, res, next) => {
                                           shibbolethHeaders.forEach(
                                                                header => {
                                                                                     if (
