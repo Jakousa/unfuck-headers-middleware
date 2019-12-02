@@ -9,9 +9,7 @@ const shibbolethCharsetMiddleware = targetHeaders => {
                                             shibbolethHeaders.forEach(header => {
                                                                   if (!req.headers[header]) return
                                                                   req.headers[header] = Buffer.from(
-                                                                                        req.headers[
-                                                                                                              header
-                                                                                        ],
+                                                                                        req.headers[header],
                                                                                         'latin1'
                                                                   ).toString('utf8')
                                             })
