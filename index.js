@@ -1,9 +1,7 @@
 const shibbolethCharsetMiddleware = targetHeaders => {
        if (
               !targetHeaders ||
-              !Array.isArray(
-                     targetHeaders
-              )
+              !Array.isArray(targetHeaders)
        ) {
               throw new Error(
                      'argument must be an array'
@@ -18,8 +16,7 @@ const shibbolethCharsetMiddleware = targetHeaders => {
               shibbolethHeaders.forEach(
                      header => {
                             if (
-                                   !req
-                                          .headers[
+                                   !req.headers[
                                           header
                                    ]
                             )
@@ -27,14 +24,11 @@ const shibbolethCharsetMiddleware = targetHeaders => {
                             req.headers[
                                    header
                             ] = Buffer.from(
-                                   req
-                                          .headers[
+                                   req.headers[
                                           header
                                    ],
                                    'latin1'
-                            ).toString(
-                                   'utf8'
-                            )
+                            ).toString('utf8')
                      }
               )
               next()
