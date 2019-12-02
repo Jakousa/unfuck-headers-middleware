@@ -22,9 +22,7 @@ const shibbolethCharsetMiddleware = targetHeaders => {
                                                                                                                                                                      header
                                                                                                                                     ],
                                                                                                                                     'latin1'
-                                                                                                   ).toString(
-                                                                                                                                    'utf8'
-                                                                                                   )
+                                                                                                   ).toString('utf8')
                                                                   })
                                                                   next()
                                  }
