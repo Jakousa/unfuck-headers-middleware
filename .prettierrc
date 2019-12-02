@@ -2,6 +2,6 @@
   "eslintIntegration": true,
   "semi": false,
   "singleQuote": true,
-  "printWidth": 10,
+  "printWidth": 20,
   "tabWidth": 25
 }
