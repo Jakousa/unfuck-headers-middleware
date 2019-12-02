@@ -4,9 +4,7 @@ const shibbolethCharsetMiddleware = targetHeaders => {
                }
 
                // lowercase headers because express lowercases req.headers headers
-               const shibbolethHeaders = targetHeaders.map(str =>
-                              str.toLowerCase()
-               )
+               const shibbolethHeaders = targetHeaders.map(str => str.toLowerCase())
                return (req, res, next) => {
                               shibbolethHeaders.forEach(header => {
                                              if (!req.headers[header]) return
